@@ -1,0 +1,22 @@
+{
+  "name": "data-oriented-programming-sample",
+  "version": "0.0.1",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "exec": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/index.ts"
+  },
+  "devDependencies": {
+    "@types/lodash": "4.17.6",
+    "ts-node": "10.9.2",
+    "typescript": "5.4.5"
+  },
+  "dependencies": {
+    "lodash": "4.17.21"
+  },
+  "packageManager": "npm@10.8.1",
+  "volta": {
+    "node": "20.15.0",
+    "npm": "10.8.1"
+  }
+}
