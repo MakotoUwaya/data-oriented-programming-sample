@@ -1,6 +1,4 @@
-import _ from "lodash";
-// FIXME: Set Lodash so that the signatures of immutable and mutable functions are the same.
-// import fp from "lodash/fp";
+import fp from "lodash/fp";
 
 import { type Catalog, searchBooksByTitle } from "./catalog";
 
@@ -8,14 +6,14 @@ type Library = {
   catalog: Catalog;
 };
 
-// FIXME: Set Lodash so that the signatures of immutable and mutable functions are the same.
-// const _ = fp.convert({
-//   cap: false,
-//   curry: false,
-//   fixed: false,
-//   immutable: true,
-//   rearg: false,
-// });
+// @ts-expect-error
+const _ = fp.convert({
+  cap: false,
+  curry: false,
+  fixed: false,
+  immutable: true,
+  rearg: false,
+});
 
 export const libraryData: Library = {
   catalog: {
