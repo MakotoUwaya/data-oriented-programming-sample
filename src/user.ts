@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from "./lib/lodash";
 
 import type { BookLending } from "./book";
 

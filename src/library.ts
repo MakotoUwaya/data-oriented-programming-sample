@@ -1,19 +1,10 @@
-import fp from "lodash/fp";
+import _ from "./lib/lodash";
 
 import { type Catalog, searchBooksByTitle } from "./catalog";
 
 type Library = {
   catalog: Catalog;
 };
-
-// @ts-expect-error
-const _ = fp.convert({
-  cap: false,
-  curry: false,
-  fixed: false,
-  immutable: true,
-  rearg: false,
-});
 
 export const libraryData: Library = {
   catalog: {
