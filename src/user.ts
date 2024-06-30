@@ -8,12 +8,12 @@ type UserBase = {
 };
 
 type Librarian = UserBase;
-type Member = UserBase & {
+export type Member = UserBase & {
   isBlocked: boolean;
   bookLending: BookLending[];
 };
 
-type UserManagement = {
+export type UserManagement = {
   librariansByEmail: Record<string, Librarian>;
   membersByEmail: Record<string, Member>;
 };
@@ -60,4 +60,16 @@ export const isSuperMember = (
   email: string
 ): boolean => {
   return _.get(userManagement, ["membersByEmail", email, "isSuper"]) === true;
+};
+
+export const addMember = (
+  userManagement: UserManagement,
+  member: Member
+): UserManagement => {
+  const email = _.get(member, "email");
+  const infoPath = ["membersByEmail", email];
+  if (_.has(userManagement, infoPath)) {
+    throw new Error("Member already exists.");
+  }
+  return _.set(userManagement, infoPath, member);
 };

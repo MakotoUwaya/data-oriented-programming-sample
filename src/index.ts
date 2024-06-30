@@ -1,30 +1,17 @@
-import { libraryData, searchBooksByTitleJSON } from "./library";
-import {
-  isLibrarian,
-  isSuperMember,
-  isVIPMember,
-  userManagementData,
-} from "./user";
+import { addMember, libraryData, searchBooksByTitleJSON } from "./library";
 
 const main = async () => {
   console.log(searchBooksByTitleJSON(libraryData, "Watch"));
 
   console.log(
-    "isLibrarian(franck@gmail.com): ",
-    isLibrarian(userManagementData, "franck@gmail.com")
+    addMember(libraryData, {
+      email: "add_user@test.example",
+      encryptedPassword: "kafa'2hasdfiasd",
+      isBlocked: false,
+      bookLending: [],
+    })
   );
-  console.log(
-    "isLibrarian(samantha@gmail.com): ",
-    isLibrarian(userManagementData, "samantha@gmail.com")
-  );
-  console.log(
-    "isVIPMember: ",
-    isVIPMember(userManagementData, "samantha@gmail.com")
-  );
-  console.log(
-    "isSuperMember: ",
-    isSuperMember(userManagementData, "samantha@gmail.com")
-  );
+  console.log(libraryData);
 };
 
 await main();
